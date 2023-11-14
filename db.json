@@ -1,0 +1,34 @@
+{
+  "snippets": [
+    {
+      "id": "loynmgwo",
+      "snippetName": "Linear progress",
+      "snippetDesc": "code for Linear progress that gets displayed while the content is being loaded. Material ui",
+      "code": "import * as React from 'react';\nimport Box from '@mui/material/Box';\nimport LinearProgress from '@mui/material/LinearProgress';\n\nexport default function LinearIndeterminate() {\n  return (\n    <Box sx={{ width: '100%' }}>\n      <LinearProgress />\n    </Box>\n  );\n}"
+    },
+    {
+      "id": "loynzmcm",
+      "snippetName": "truncate text",
+      "snippetDesc": "3 dots displayed at the end if the string is too long to be displayed.",
+      "code": " overflow: \"hidden\",\n textOverflow: \"ellipsis\",\n display: \"-webkit-box\",\n WebkitBoxOrient: \"vertical\",\n WebkitLineClamp: 2,\n lineHeight: \"1.5rem\","
+    },
+    {
+      "id": "loyodpmn",
+      "snippetName": "Hello world",
+      "snippetDesc": "Simple js program to print hello world",
+      "code": "console.log(\"hello world\");"
+    },
+    {
+      "id": "loysjp8w",
+      "snippetName": "Card",
+      "snippetDesc": "Material UI card component with card image, card content and card actions",
+      "code": "import * as React from 'react';\nimport Card from '@mui/material/Card';\nimport CardActions from '@mui/material/CardActions';\nimport CardContent from '@mui/material/CardContent';\nimport CardMedia from '@mui/material/CardMedia';\nimport Button from '@mui/material/Button';\nimport Typography from '@mui/material/Typography';\n\nexport default function MediaCard() {\n  return (\n    <Card sx={{ maxWidth: 345 }}>\n      <CardMedia\n        sx={{ height: 140 }}\n        image=\"/static/images/cards/contemplative-reptile.jpg\"\n        title=\"green iguana\"\n      />\n      <CardContent>\n        <Typography gutterBottom variant=\"h5\" component=\"div\">\n          Lizard\n        </Typography>\n        <Typography variant=\"body2\" color=\"text.secondary\">\n          Lizards are a widespread group of squamate reptiles, with over 6,000\n          species, ranging across all continents except Antarctica\n        </Typography>\n      </CardContent>\n      <CardActions>\n        <Button size=\"small\">Share</Button>\n        <Button size=\"small\">Learn More</Button>\n      </CardActions>\n    </Card>\n  );\n}"
+    },
+    {
+      "id": "loytrcvj",
+      "snippetName": "dialog box",
+      "snippetDesc": "Material ui dialog box comonent with avatar icons",
+      "code": "import * as React from 'react';\nimport PropTypes from 'prop-types';\nimport Button from '@mui/material/Button';\nimport Avatar from '@mui/material/Avatar';\nimport List from '@mui/material/List';\nimport ListItem from '@mui/material/ListItem';\nimport ListItemAvatar from '@mui/material/ListItemAvatar';\nimport ListItemButton from '@mui/material/ListItemButton';\nimport ListItemText from '@mui/material/ListItemText';\nimport DialogTitle from '@mui/material/DialogTitle';\nimport Dialog from '@mui/material/Dialog';\nimport PersonIcon from '@mui/icons-material/Person';\nimport AddIcon from '@mui/icons-material/Add';\nimport Typography from '@mui/material/Typography';\nimport { blue } from '@mui/material/colors';\n\nconst emails = ['username@gmail.com', 'user02@gmail.com'];\n\nfunction SimpleDialog(props) {\n  const { onClose, selectedValue, open } = props;\n\n  const handleClose = () => {\n    onClose(selectedValue);\n  };\n\n  const handleListItemClick = (value) => {\n    onClose(value);\n  };\n\n  return (\n    <Dialog onClose={handleClose} open={open}>\n      <DialogTitle>Set backup account</DialogTitle>\n      <List sx={{ pt: 0 }}>\n        {emails.map((email) => (\n          <ListItem disableGutters key={email}>\n            <ListItemButton onClick={() => handleListItemClick(email)}>\n              <ListItemAvatar>\n                <Avatar sx={{ bgcolor: blue[100], color: blue[600] }}>\n                  <PersonIcon />\n                </Avatar>\n              </ListItemAvatar>\n              <ListItemText primary={email} />\n            </ListItemButton>\n          </ListItem>\n        ))}\n        <ListItem disableGutters>\n          <ListItemButton\n            autoFocus\n            onClick={() => handleListItemClick('addAccount')}\n          >\n            <ListItemAvatar>\n              <Avatar>\n                <AddIcon />\n              </Avatar>\n            </ListItemAvatar>\n            <ListItemText primary=\"Add account\" />\n          </ListItemButton>\n        </ListItem>\n      </List>\n    </Dialog>\n  );\n}\n\nSimpleDialog.propTypes = {\n  onClose: PropTypes.func.isRequired,\n  open: PropTypes.bool.isRequired,\n  selectedValue: PropTypes.string.isRequired,\n};\n\nexport default function SimpleDialogDemo() {\n  const [open, setOpen] = React.useState(false);\n  const [selectedValue, setSelectedValue] = React.useState(emails[1]);\n\n  const handleClickOpen = () => {\n    setOpen(true);\n  };\n\n  const handleClose = (value) => {\n    setOpen(false);\n    setSelectedValue(value);\n  };\n\n  return (\n    <div>\n      <Typography variant=\"subtitle1\" component=\"div\">\n        Selected: {selectedValue}\n      </Typography>\n      <br />\n      <Button variant=\"outlined\" onClick={handleClickOpen}>\n        Open simple dialog\n      </Button>\n      <SimpleDialog\n        selectedValue={selectedValue}\n        open={open}\n        onClose={handleClose}\n      />\n    </div>\n  );\n}"
+    }
+  ]
+}
